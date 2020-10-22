@@ -1,0 +1,18 @@
+@import url('./__quote/container__quote.css');
+@import url('./__author/container__author.css');
+@import url('./__button-container/container__button-container.css');
+@import url('./__quote/_sm/container__quote_sm.css');
+
+.container {
+    max-width: 900px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, .2);
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        margin: auto 10px;
+    }
+}

@@ -1,0 +1,13 @@
+.container__quote {
+    font-size: 2.55rem;
+}
+
+.container__quote .fa-quote-left {
+    font-size: 4rem;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container__quote {
+        font-size: 2rem;
+    }
+}
