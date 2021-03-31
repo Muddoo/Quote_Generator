@@ -16,23 +16,21 @@ function noSpinner() {
 };
 
 async function getQuote() {
-    const apiUrl = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+    const apiUrl = `https://api.quotable.io/random`;
     try {
        spinner();
-       const res =  await fetch(proxyUrl);
+       const res =  await fetch(apiUrl);
        const data = await res.json();
-       const content = JSON.parse(data.contents); 
-       author.textContent = content.quoteAuthor || 'UnKnown Author';
-       content.quoteText.length > 120 ? quote.classList.add('container__quote_sm') : quote.classList.remove('container__quote_sm');
-       quote.textContent = content.quoteText;
+       author.textContent = data.author || 'UnKnown Author';
+       quote.textContent = data.content;
        setTimeout(() => noSpinner(), 300);
+       data.length > 120 ? quote.classList.add('container__quote_sm') : quote.classList.remove('container__quote_sm');
     } catch (error) {
         getQuote();
     }
 };
 
-async function tweetQuote() {
+function tweetQuote() {
     const tweetUrl = `https://twitter.com/intent/tweet?text=${quote.textContent} - ${author.textContent}`;
     window.open(tweetUrl, '_blank');
 };
